@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap');
+
+body {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+}
+
+.news-card-wrapper {
+  margin: 10px;
+}
+
+.wrapper-main {
+   margin-right: 200px;
+  margin-left: 200px;
+}
+
+.author-name {
+  line-height: 13px;
+  margin-bottom: 6px;
+  line-height: 83%;
+} 
+
+.author-post-in-social {
+  font-style: italic;
+  font-size: 12px;
+  line-height: 77%;
+}
+
+.author-name,
+.author-post-in-social {
+  color: #808080;
+}
+
+.author-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.box {
+  border: 1px solid black;
+}
+
+.box1-1:first-child {
+  width: 36px;
+  height: 36px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.box1-1 {
+  margin: 10px;
+}
+
+.box1-1:nth-child(2) {
+  font-size: 14px;
+  line-height: 66%;
+}
+
+.box1,
+.first-row,
+.post-further {
+  color: #808080;
+}
+
+.post-text-author {
+  line-height: 83%;
+}
+
+.post-text-social {
+  font-size: 12px;
+  font-style: italic;
+  line-height: 77%;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.button {
+  font-size: 11px;
+  color: #0088EE;
+  padding: 8px 10px;
+  border: 1px solid #0088EE;
+  margin-right: 10px;
+  border-radius: 1px;
+  margin-bottom: 0;
+}
+
+.icon {
+  margin: 0px;
+  padding: 0px;
+}
+
+.icons-line {
+  /*align-items: top !important;*/
+}
+
+.post {
+  line-height: 135%;
+  color: #333333;
+  letter-spacing: -0.035em;
+  margin-top: 9px;
+  margin-bottom: 8px;
+}
+
+.box3 {
+  padding: 7px 9px 11px 9px;
+  margin-left: 200px;
+  margin-right: 200px;
+  /* width: 100%; */
+}
+
+.hash {
+  font-size: 12px;
+  line-height: 82%;
+  padding-right: 8px;
+}
+
+.hash-new {
+  color: #0088EE;
+}
+
+.hash-expert {
+  color: #CDCDCD;
+}
+
+.post-further {
+  font-size: 12px;
+  line-height: 82%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 0;
+}
+
+.post-image {
+  background: #beb8b8;
+  width: 259px;
+  height: 146px;
+  border-radius: 4px;
+  margin-bottom: 0;
+  /*transform: rotate(-90deg);*/
+}
+
+.wrapper-container {
+  border: 1px solid rgb(212, 211, 211);
+   
+}
