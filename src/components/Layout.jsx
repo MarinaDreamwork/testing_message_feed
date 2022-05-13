@@ -1,28 +1,22 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import  path  from '../images/iconssvg.svg';
 import UserAvatar from '../images/user-avatar.png';
+import Favorites from './Favorites';
+import PropTypes from 'prop-types';
+import { dateFormat } from '../utils/utils';
+import Settings from './Settings';
 
-const Layout = ({ message }) => {
-  console.log('message', message);
-
-  const dateFormat = () => {
-    const date = new Date(message.date);
-    let dateHours = date.getHours();
-
-    let dateMinutes = date.getMinutes();
-    if(dateMinutes < 10) {
-      dateMinutes = `0` + dateMinutes;
-    }
-    return `${dateHours}:${dateMinutes}`;
-  }
+const Layout = ({ message, onToggleFavorites }) => {
+  
+  //console.log('message', message);
 
   return ( 
-    <Container className="wrapper-container d-flex flex-column justify-content-center">
+    <Container className="wrapper-container d-flex flex-column justify-content-center mb-2">
       <div className='wrapper-main d-flex'>
         <div className="box1">
           <div className='box1-1'>
             <img alt='author-avatar' src={UserAvatar} /> 
-            <p>{dateFormat()}</p>
+            <p>{dateFormat(message)}</p>
           </div>
         </div>
         <div className='wrapper'>
@@ -36,7 +30,7 @@ const Layout = ({ message }) => {
               <p className='button'>Центр</p>
               <p className='button'>Правый</p>
             </Col>
-            {/* <Col sm={3} className='icons-line box2.3 d-flex justify-content-end'>
+            <Col sm={3} className='icons-line d-flex justify-content-end'>
               <svg className="icon">
                 <use xlinkHref={ path + "#arrow"}></use>
               </svg>
@@ -46,10 +40,8 @@ const Layout = ({ message }) => {
               <svg className="icon">
                 <use xlinkHref={ path + "#gear"}></use>
               </svg>
-              <svg className="icon" >
-                <use xlinkHref={ path + "#star-not-fill"}></use>
-              </svg>
-            </Col> */}
+              <Favorites message={message} onToggleFavorites={onToggleFavorites}/>
+            </Col>
           </Row>
           <Row className='second-row'>
             <Col>
@@ -58,7 +50,8 @@ const Layout = ({ message }) => {
           </Row>
           <div className='third-row'>
             <p className='post-further'>Далее</p>
-            <img className='post-image' src={message.attachments[0]?.url} alt='here should be post image' />
+            <div className='post-image' style={{backgroundImage: `url(${message.attachments[0]?.url})`, backgroundSize: 'cover'}}>
+            </div>
           </div>
         </div>
       </div>
@@ -68,6 +61,11 @@ const Layout = ({ message }) => {
       </div>
     </Container> 
   );
+}
+
+Layout.propTypes = {
+  message: PropTypes.object.isRequired,
+  onToggleFavorites: PropTypes.func.isRequired
 }
  
 export default Layout;
