@@ -1,8 +1,7 @@
-
 import { useEffect, useState } from "react";
 import Layout from "./components/Layout";
 import { getMessages } from '../src/api/api'
-import { addFavoritesField } from "./utils/utils";
+import { addFavoritesField, getInitialIds, addNewIds } from "./utils/utils";
 import { Container } from "react-bootstrap";
 import Preloader from "./components/Preloader";
 //import NewsCard from "./components/NewsCard"
@@ -10,9 +9,10 @@ import Preloader from "./components/Preloader";
 const App = () => {
 
   const [messages, setMessages] = useState();
-  //const [newMessages, setNewMessages] = useState();
+  const [newMessages, setNewMessages] = useState();
   const [isDownOrder, setIsDownOrder] = useState(true);
   const [favoriteMessages, setFavoriteMessages] = useState([]);
+  const [receivedIds, setReceivedIds] = useState([]);
 
   const handleToggleFavorites = (id) => {
     const favoritedMessage = favoriteMessages.map(message => {
@@ -49,18 +49,21 @@ const App = () => {
 
   useEffect(()=> {
     messages?.Messages.length > 0 && setFavoriteMessages(addFavoritesField(messages?.Messages));
+    setReceivedIds(getInitialIds(favoriteMessages));
     if(!localStorage.getItem('messages')) {
       messages?.Messages.length > 0 && localStorage.setItem('messages', JSON.stringify(addFavoritesField(messages?.Messages)));
     }
+    console.log('receivedIds', receivedIds);
+    console.log('Math.max(...receivedIds)', Math.max(...receivedIds));
   }, [messages])
 
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     getMessages('messageId', 2698, setNewMessages);
-  //     getMessages('oldMessages', true, setNewMessages);
-  //     getMessages('oldMessages', true, setMessages);
-  //   }, 5000);
-  // }, []);
+  useEffect(() => {
+    setInterval(() => {
+      getMessages('messageId', Math.max(...receivedIds) > 0 && Math.max(...receivedIds), setNewMessages);
+      (newMessages?.Messages.length > 0 && newMessages?.Messages !== 'no message') && setFavoriteMessages(prevState => [...prevState, ...addFavoritesField(newMessages?.Messages)]);
+      (newMessages?.Messages.length > 0 && newMessages?.Messages !== 'no message') && addNewIds(favoriteMessages);
+    }, 5000);
+  }, []);
 
   return ( 
     <>

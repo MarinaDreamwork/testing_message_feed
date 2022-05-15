@@ -1,4 +1,4 @@
-//import FormData from 'form-data';
+import FormData from 'form-data';
 
 export function getMessages(key, value, setMessagesFunction) {
   let xhr = new XMLHttpRequest();
