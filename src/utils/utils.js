@@ -35,25 +35,14 @@ export const dateFormat = (obj) => {
     // }
   }
 
-  export function getInitialIds(array) {
-    let arr = [];
-    for(let i = 0; i < array.length; i++) {
-      arr.push(Number(array[i].id));
-    }
-    return arr;
-    // return array.forEach(favoriteMessage => func(prevState => ([
-    //   ...prevState,
-    //   Number(favoriteMessage.id)
-    // ])));
-  }
-
   export function addNewIds(array, newArray, func) {
     let arr = [];
     for(let i = 0; i < newArray.length; i++) {
-      arr.push(Number(newArray[i].id));
-      console.log('newArray[i]', Number(newArray[i].id));
+      for(let j = 0; j < array.length; j++) {
+        arr.push(Number(array[j].id), Number(newArray[i].id));
+      };
     }
-    return arr;
+    return func(arr.sort());
   }
 
 export const combineAllArrays = (oldArray, newArray) => {
