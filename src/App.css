@@ -42,23 +42,23 @@ body {
   border: 1px solid black;
 }
 
-.box1-1:first-child {
+.author-time-block:first-child {
   width: 36px;
   height: 36px;
   border: 1px solid black;
   border-radius: 50%;
 }
 
-.box1-1 {
+.author-time-block {
   margin: 10px;
 }
 
-.box1-1:nth-child(2) {
+.author-time-block:nth-child(2) {
   font-size: 14px;
   line-height: 66%;
 }
 
-.box1,
+.wrapper-main-left,
 .first-row,
 .post-further {
   color: #808080;
@@ -74,7 +74,7 @@ body {
   line-height: 77%;
 }
 
-.wrapper {
+.wrapper-main-center {
   width: 100%;
 }
 
@@ -117,7 +117,7 @@ body {
   margin-bottom: 8px;
 }
 
-.box3 {
+.wrapper-hashes {
   padding: 7px 9px 11px 9px;
   margin-left: 200px;
   margin-right: 200px;

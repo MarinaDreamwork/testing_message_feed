@@ -1,4 +1,4 @@
-import path from '../images/iconssvg.svg';
+import path from '../images/icons.svg';
 import PropTypes from 'prop-types';
 
 const Favorites = ({ onToggleFavorites, message }) => {

@@ -55,3 +55,9 @@ export const dateFormat = (obj) => {
     }
     return arr;
   }
+
+export const combineAllArrays = (oldArray, newArray) => {
+  let combinedArray = [];
+  combinedArray.push(...oldArray, ...newArray);
+  return combinedArray;
+};
